@@ -1,0 +1,79 @@
+{
+  "entities": {
+    "Habit": {
+      "title": "Habit",
+      "description": "A habit to be tracked.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the habit."
+        },
+        "color": {
+          "type": "string",
+          "description": "The color theme for the habit."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user who owns this habit."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the habit was created."
+        },
+        "reminderEnabled": {
+          "type": "boolean",
+          "description": "Whether reminders are enabled for this habit."
+        },
+        "reminderTime": {
+          "type": "string",
+          "description": "The time for the reminder (HH:mm)."
+        },
+        "reminderDays": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "The days of the week for the reminder (0-6)."
+        }
+      },
+      "required": ["name", "userId", "createdAt"]
+    },
+    "HabitLog": {
+      "title": "Habit Log",
+      "description": "A record of a habit completion on a specific date.",
+      "type": "object",
+      "properties": {
+        "habitId": {
+          "type": "string",
+          "description": "The ID of the habit."
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "The date of the log (YYYY-MM-DD)."
+        },
+        "completed": {
+          "type": "boolean",
+          "description": "Whether the habit was completed on this date."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user who owns this log."
+        }
+      },
+      "required": ["habitId", "date", "completed", "userId"]
+    }
+  },
+  "firestore": {
+    "/habits/{habitId}": {
+      "schema": "Habit",
+      "description": "Collection of habits."
+    },
+    "/logs/{logId}": {
+      "schema": "HabitLog",
+      "description": "Collection of habit completion logs."
+    }
+  }
+}
