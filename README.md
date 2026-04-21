@@ -8,6 +8,10 @@ This contains everything you need to run your app locally.
 
 View your app in AI Studio: https://ai.studio/apps/0a76ed54-1fdb-4ca0-8753-2eba98e59ac4
 
+ou
+
+https://rastreador-de-h-bitos-189557265625.us-west1.run.app
+
 ## Run Locally
 
 **Prerequisites:**  Node.js
